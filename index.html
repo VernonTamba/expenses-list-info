@@ -22,20 +22,33 @@
           <form>
             <div>
               <label for="title">Title</label>
-              <input type="text" name="title" required />
+              <input id="title" type="text" name="title" required />
             </div>
             <div>
               <label for="amount">Amount</label>
-              <input type="text" name="amount" required />
+              <input id="amount" type="text" name="amount" required />
             </div>
             <div>
               <label for="date">Date</label>
-              <input type="date" name="date" required />
+              <input
+                id="date"
+                type="date"
+                name="date"
+                min="2019-01-01"
+                max="2022-12-31"
+                required
+              />
             </div>
           </form>
           <div class="form__buttons">
             <button onclick="toggleForm()">Cancel</button>
-            <button type="submit">Add Expense</button>
+            <button
+              id="submitButton"
+              type="submit"
+              onclick="storeInputValues()"
+            >
+              Add Expense
+            </button>
           </div>
         </div>
 
@@ -59,89 +72,61 @@
             <option value="2022">2022</option>
           </select>
         </div>
-        <div class="main__diagram">
-          <div class="main__diagram--item">
+        <div class="main__diagram row">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Jan</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Feb</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Mar</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Apr</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>May</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Jun</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Jul</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Aug</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Sep</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Oct</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Nov</p>
           </div>
-          <div class="main__diagram--item">
+          <div class="main__diagram--item col col-xs-2">
             <div class="diagram__capsule"></div>
             <p>Dec</p>
           </div>
         </div>
         <!-- List of expenses -->
-        <div class="main__expensesList">
-          <div class="main__expensesList--item">
-            <div class="expensesList--itemDate">
-              <p>March</p>
-              <p>2021</p>
-              <p>12</p>
-            </div>
-            <h3>New TV</h3>
-            <p>$799.49</p>
-          </div>
-          <div class="main__expensesList--item">
-            <div class="expensesList--itemDate">
-              <p>March</p>
-              <p>2021</p>
-              <p>12</p>
-            </div>
-            <h3>New TV</h3>
-            <p>$799.49</p>
-          </div>
-          <div class="main__expensesList--item">
-            <div class="expensesList--itemDate">
-              <p>March</p>
-              <p>2021</p>
-              <p>12</p>
-            </div>
-            <h3>New TV</h3>
-            <p>$799.49</p>
-          </div>
+        <div class="main__expensesList"></div>
+        <div class="main__expensesList--none">
+          <h3>Found no expenses.</h3>
         </div>
-        <!-- <div class="main__expensesList--none">
-            <h3>Found no expenses.</h3>
-        </div> -->
       </div>
     </div>
 

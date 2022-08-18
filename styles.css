@@ -20,13 +20,13 @@ button {
 
 .container__form,
 .container__main {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .container {
   width: 50vw;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 0.5em;
+  padding: 2em 0.5em;
 }
 
 /** --- HEADER CONTAINER --- **/
@@ -38,7 +38,6 @@ button {
   border-radius: 0.7rem;
   margin-bottom: 2em;
   padding: 0.3em;
-  /* height: 40vh; */
 }
 
 .container__form.newForm {
@@ -47,14 +46,11 @@ button {
   align-items: center;
 }
 
-.hide {
-  display: none;
-}
-
 .container__form--new button {
   padding: 1em;
   margin: 1em;
   transition: all 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .container__form--inputs form {
@@ -89,17 +85,40 @@ button {
   padding: 0.9em 1.4em;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .container__form--new button:hover {
   background-color: #fff;
   color: #40005d;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .form__buttons button:hover {
   transform: translateY(-3px);
   background-color: #fff;
   color: #40005d;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+@media (max-width: 800px) {
+  .container__form--inputs form {
+    grid-template-columns: 1fr;
+  }
+  .form__buttons {
+    justify-content: center;
+  }
+
+  .form__buttons button {
+    padding: 0.5em 1em;
+  }
+  .main__header {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /** --- MAIN CONTAINER --- **/
@@ -159,13 +178,17 @@ button {
   bottom: 0;
   left: 0;
   background-color: #4826b9;
-  height: 0px;
+  height: var(--capsuleAfter, "0px");
   width: 25px;
-  /*TODO: Do this when the capsule is full */
-  /* border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem; */
+  border-top-left-radius: var(--capsuleAfterRadiusTopLeft, 0rem);
+  border-top-right-radius: var(--capsuleAfterRadiusTopRight, 0rem);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.col {
+  margin: 0;
 }
 
 .main__diagram--item p {
@@ -197,6 +220,7 @@ button {
   padding: 0.5em 1.3em;
   border: 1px solid #fff;
   border-radius: 0.7rem;
+  width: 15%;
 }
 
 .expensesList--itemDate > p {
@@ -239,4 +263,35 @@ button {
 .main__expensesList--item:hover {
   transform: scale(1.025);
   background-color: #c3b4f3;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.main__expensesList--none {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.main__expensesList--none h3 {
+  font-weight: 800;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .expensesList--itemDate {
+    flex: 0.5;
+  }
+
+  .main__expensesList--item h3 {
+    margin-left: 0.3em;
+  }
+
+  .main__expensesList--item > p {
+    padding: 0.4em 0.5em;
+  }
 }
