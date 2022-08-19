@@ -7,7 +7,7 @@ const formInputs = document.querySelector(".container__form--inputs");
 // Button global elements
 const submitButton = document.querySelector("#submitButton");
 
-// Input global elemens
+// Input global elements
 const inputs = document.querySelectorAll("input");
 const titleInput = document.querySelector("#title");
 const amountInput = document.querySelector("#amount");
@@ -66,6 +66,7 @@ const clearInputFields = () => {
 // Store the filled input fields
 const storeInputValues = () => {
   // Validation: Checking if all input fields are already filled or not
+  // For future modifications and upgrades, add validation for incorrect type of input fields (e.g., amount must be a number)
   if (
     inputs[0].value === "" ||
     inputs[1].value === "" ||
@@ -170,7 +171,6 @@ submitButton.addEventListener("click", () => {
   if (selectedYearInput.value === "0") {
     return;
   }
-  console.log(selectedYearInput.value);
 
   mainExpensesList.textContent = "";
 
@@ -193,6 +193,7 @@ const setMonthlyExpensesDiagram = (selectedYearInput) => {
     (expense) => expense.date.substring(0, 4) === selectedYearInput
   );
 
+  // Check whether there are any monthly expenses for the specific year
   if (filteredExpensesData.length === 0) {
     allDiagramCapsule.forEach((diagramCapsule) => {
       diagramCapsule.style.setProperty("--capsuleAfter", "0px");
@@ -281,7 +282,7 @@ const setMonthlyExpensesDiagram = (selectedYearInput) => {
 const changeDiagramCapsule = (amount, capsuleNumber) => {
   const allDiagramCapsule = document.querySelectorAll(".diagram__capsule");
 
-  if (amount >= 800) {
+  if (amount >= 900) {
     allDiagramCapsule[capsuleNumber].style.setProperty(
       "--capsuleAfter",
       "90px"
@@ -294,10 +295,23 @@ const changeDiagramCapsule = (amount, capsuleNumber) => {
       "--capsuleAfterRadiusTopRight",
       "1rem"
     );
-  } else if (amount >= 500) {
+  } else if (amount >= 700) {
     allDiagramCapsule[capsuleNumber].style.setProperty(
       "--capsuleAfter",
       "70px"
+    );
+    allDiagramCapsule[capsuleNumber].style.setProperty(
+      "--capsuleAfterRadiusTopLeft",
+      "0rem"
+    );
+    allDiagramCapsule[capsuleNumber].style.setProperty(
+      "--capsuleAfterRadiusTopRight",
+      "0rem"
+    );
+  } else if (amount >= 500) {
+    allDiagramCapsule[capsuleNumber].style.setProperty(
+      "--capsuleAfter",
+      "50px"
     );
     allDiagramCapsule[capsuleNumber].style.setProperty(
       "--capsuleAfterRadiusTopLeft",
@@ -333,8 +347,18 @@ const changeDiagramCapsule = (amount, capsuleNumber) => {
       "--capsuleAfterRadiusTopRight",
       "0rem"
     );
-  } else {
+  } else if (amount >= 50) {
     allDiagramCapsule[capsuleNumber].style.setProperty("--capsuleAfter", "5px");
+    allDiagramCapsule[capsuleNumber].style.setProperty(
+      "--capsuleAfterRadiusTopLeft",
+      "0rem"
+    );
+    allDiagramCapsule[capsuleNumber].style.setProperty(
+      "--capsuleAfterRadiusTopRight",
+      "0rem"
+    );
+  } else {
+    allDiagramCapsule[capsuleNumber].style.setProperty("--capsuleAfter", "0px");
     allDiagramCapsule[capsuleNumber].style.setProperty(
       "--capsuleAfterRadiusTopLeft",
       "0rem"

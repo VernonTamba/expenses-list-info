@@ -276,6 +276,7 @@ button {
 
 .main__expensesList--none h3 {
   font-weight: 800;
+  text-align: center;
 }
 
 .hide {
