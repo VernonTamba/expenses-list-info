@@ -369,3 +369,5 @@ const changeDiagramCapsule = (amount, capsuleNumber) => {
     );
   }
 };
+
+// Note: There are still flaws. And the codes surely are unlcean and messy. So much to be fixed and improved on in the future.
