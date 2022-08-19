@@ -104,6 +104,9 @@ button {
 }
 
 @media (max-width: 800px) {
+  .container {
+    width: 75vw;
+  }
   .container__form--inputs form {
     grid-template-columns: 1fr;
   }
@@ -117,6 +120,12 @@ button {
   .main__header {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 80vw;
   }
 }
 
